@@ -152,4 +152,6 @@ int main()
     free(arvore);
 
     fclose(arq);
+    
+    return 0;
 }
