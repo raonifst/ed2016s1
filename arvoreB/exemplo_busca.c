@@ -114,8 +114,11 @@ NoArvB* busca_ArvB(FILE* arq, ArvB* arv, NoArvB* raiz, int chave)
             x = ler_no(arq, x->filhos[i], arv->grau_min);
             if(tmp != raiz)
                 apagar_no(&tmp);
-        }else
-            x = NULL;
+        }else {
+	        if(x != NULL && x != raiz)
+		        apagar_no(&x); 	    
+            //x = NULL;
+	      }
     }
 
     return x;
@@ -144,7 +147,8 @@ int main()
 
     if(no != NULL) {
         mostrar_chaves_no(no);
-        apagar_no(&no);
+	      if(no != raiz) /*Evita que a raiz seja apagada duas vezes*/
+        	apagar_no(&no);
     } else
         printf("Chave nao encontrada.\n");
 
