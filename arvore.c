@@ -1,4 +1,10 @@
 #include "arvore.h"
+#include <math.h>
+
+/**/
+#define REMOVIDO 0
+#define VALIDO 1
+
 
 typedef struct _ex {
   int *caract; // Valores das Características
